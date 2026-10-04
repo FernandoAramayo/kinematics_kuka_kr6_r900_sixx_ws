@@ -59,11 +59,11 @@ Este procedimiento permite enviar una coordenada en el espacio ($X, Y, Z$); el n
 2. **Importante:** Cierra la ventana emergente de *Joint State Publisher GUI* (la de los sliders) para que no interfiera publicando ceros en las articulaciones.
 3. Abre una **segunda terminal** (recuerda ejecutar `source entorno.sh`) y corre el nodo IK:
    ```bash
-   ros2 run grupo03_kuka_kr6_kinematics ik_node
+   ros2 run grupo03_robot_kinematics ik_node
    ```
 4. Abre una **tercera terminal** (`source entorno.sh`) y corre el nodo FK:
    ```bash
-   ros2 run grupo03_kuka_kr6_kinematics fk_node
+   ros2 run grupo03_robot_kinematics fk_node
    ```
 5. Abre una **cuarta terminal** (`source entorno.sh`) y envía el objetivo espacial. *Ejemplo concreto de una prueba:*
    ```bash
@@ -77,7 +77,7 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
 1. Abre una terminal y ejecuta el *launch* file de RViz2 (esta vez **mantén abierto** el *Joint State Publisher GUI*).
 2. Abre una **segunda terminal** (`source entorno.sh`) y corre el nodo FK:
    ```bash
-   ros2 run grupo03_kuka_kr6_kinematics fk_node
+   ros2 run grupo03_robot_kinematics fk_node
    ```
 3. Mueve las barras deslizantes (*sliders*) en la interfaz gráfica.
 4. **Observar resultados:** La terminal de FK imprimirá en tiempo real las coordenadas $x, y, z$ y el cuaternión del extremo del robot.
