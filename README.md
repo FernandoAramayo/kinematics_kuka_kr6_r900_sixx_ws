@@ -3,13 +3,13 @@
 ## 1. Información General
 * **Proyecto:** Implementación de Cinemática Directa e Inversa
 * **Robot:** KUKA KR 6 R900 sixx
-* **Autores:** Grupo 03 (Fernando Aramayo y Cristina Montaño)
-* **Objetivo del trabajo:** Desarrollar, analizar y validar computacionalmente los modelos de cinemática directa (mediante convención Denavit-Hartenberg) e inversa (mediante método iterativo del Jacobiano Geométrico y pseudoinversa) del brazo robótico KUKA KR 6 R900 sixx, integrándolos en un entorno de simulación en ROS 2.
+* **Autores:** 
+   Fernando Aramayo
+   Cristina Montaño
 
 ## 2. Software y Versiones Requeridas
 * **Sistema Operativo:** Ubuntu 24.04 LTS
 * **Middleware de ROS:** ROS 2 Jazzy Jalisco
-* **Implementación RMW:** CycloneDDS (`rmw_cyclonedds_cpp`)
 * **Lenguaje:** Python 3 (con librería `numpy`)
 
 ## 3. Instalación y Configuración del Workspace
@@ -21,10 +21,10 @@ Abre una terminal y ejecuta secuencialmente:
 
 ```bash
 # Clonar este repositorio
-git clone [https://github.com/](https://github.com/)[TU-USUARIO]/[TU-REPOSITORIO].git
-cd [TU-REPOSITORIO]
+git clone https://github.com/FernandoAramayo/kinematics_kuka_kr6_r900_sixx_ws
+cd kinematics_kuka_kr6_r900_sixx_ws
 
-# Dar permisos de ejecución e instalar (requiere contraseña sudo)
+# Dar permisos de ejecución e instalar 
 chmod +x instalar.sh abrir.sh recompilar.sh verificar.sh
 ./instalar.sh
 ```
@@ -67,9 +67,9 @@ Este procedimiento permite enviar una coordenada en el espacio ($X, Y, Z$); el n
    ```
 5. Abre una **cuarta terminal** (`source entorno.sh`) y envía el objetivo espacial. *Ejemplo concreto de una prueba:*
    ```bash
-   ros2 topic pub /target geometry_msgs/msg/Point "{x: 0.40, y: 0.20, z: 0.50}" --once
+   ros2 topic pub /target geometry_msgs/msg/Point "{x: 0.50, y: 0.20, z: 0.80}" --once
    ```
-6. **Observar resultados:** El robot en RViz se moverá al punto deseado. La terminal del nodo IK informará las iteraciones de convergencia, y la terminal del nodo FK imprimirá una tabla verificando la posición final ($p_f$) contra la solicitada ($p_d$) y calculando el error.
+6. **Observar resultados:** El robot en RViz se moverá al punto deseado. La terminal del nodo IK informará las iteraciones de convergencia, y la terminal del nodo FK imprimirá la posición final ($p_f$), la posición solicitada ($p_d$) y calculará el error.
 
 ### Procedimiento B: Prueba de Solo Cinemática Directa (FK manual)
 Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK calcula las posiciones cartesianas y los cuaterniones en tiempo real.
@@ -115,12 +115,10 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
         ├── setup.cfg
         └── setup.py
 ```
-*(Nota: Las carpetas autogeneradas `build/`, `install/`, `log/` y repositorios externos completos se omiten intencionalmente mediante `.gitignore` y `dependencias.repos` cumpliendo las directrices del proyecto).*
 
 ## 7. Errores Conocidos y Consideraciones Particulares
 * **Conflicto de publicación en `/joint_states`:** Si se utiliza el nodo de Cinemática Inversa (IK) con la interfaz gráfica (GUI) de *Joint State Publisher* abierta, el robot temblará erráticamente en RViz. Esto ocurre porque la GUI y el nodo IK intentan escribir comandos contradictorios en el mismo tópico al mismo tiempo. Es mandatorio cerrar la GUI para el Procedimiento A.
-* **Singularidades Matemáticas:** El método IK implementado usa la pseudoinversa geométrica estricta. Si se envía un objetivo `/target` que obligue al robot a estirarse por completo o provoque una singularidad de muñeca/hombro, el algoritmo podría detener su convergencia debido al límite de paso impuesto (`max_step = 0.1`).
-* **Offset Geométrico de KUKA:** El modelo DH incorpora de forma matemática el desfase físico negativo en el eje $Z$ del robot, respetando el rotado estructural en las articulaciones 3 y 4 propio del brazo real.
+
 =======
 # kinematics_kuka_kr6_r900_sixx_ws
 >>>>>>> 2c563493db95e0d48e197cfcb5c149256cb60bc7
