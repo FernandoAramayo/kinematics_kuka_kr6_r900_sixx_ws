@@ -121,3 +121,6 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
 * **Conflicto de publicación en `/joint_states`:** Si se utiliza el nodo de Cinemática Inversa (IK) con la interfaz gráfica (GUI) de *Joint State Publisher* abierta, el robot temblará erráticamente en RViz. Esto ocurre porque la GUI y el nodo IK intentan escribir comandos contradictorios en el mismo tópico al mismo tiempo. Es mandatorio cerrar la GUI para el Procedimiento A.
 * **Singularidades Matemáticas:** El método IK implementado usa la pseudoinversa geométrica estricta. Si se envía un objetivo `/target` que obligue al robot a estirarse por completo o provoque una singularidad de muñeca/hombro, el algoritmo podría detener su convergencia debido al límite de paso impuesto (`max_step = 0.1`).
 * **Offset Geométrico de KUKA:** El modelo DH incorpora de forma matemática el desfase físico negativo en el eje $Z$ del robot, respetando el rotado estructural en las articulaciones 3 y 4 propio del brazo real.
+=======
+# kinematics_kuka_kr6_r900_sixx_ws
+>>>>>>> 2c563493db95e0d48e197cfcb5c149256cb60bc7
