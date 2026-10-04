@@ -3,8 +3,8 @@
 ## 1. Información General
 * **Proyecto:** Implementación de Cinemática Directa e Inversa
 * **Robot:** KUKA KR 6 R900 sixx
-* **Autores:** 
-   Fernando Aramayo
+* **Autores:**\
+   Fernando Aramayo\
    Cristina Montaño
 
 ## 2. Software y Versiones Requeridas
