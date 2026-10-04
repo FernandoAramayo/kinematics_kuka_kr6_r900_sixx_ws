@@ -119,6 +119,15 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
 ## 7. Errores Conocidos y Consideraciones Particulares
 * **Conflicto de publicación en `/joint_states`:** Si se utiliza el nodo de Cinemática Inversa (IK) con la interfaz gráfica (GUI) de *Joint State Publisher* abierta, el robot temblará erráticamente en RViz. Esto ocurre porque la GUI y el nodo IK intentan escribir comandos contradictorios en el mismo tópico al mismo tiempo. Es mandatorio cerrar la GUI para el Procedimiento A.
 
+## 8. Ejemplo de resultados
+Al seguir Procedimiento A: Prueba Completa (Cinemática Inversa + Directa), mediante el objetivo\
+{x: 0.50, y: 0.20, z: 0.80}\
+La terminal para cinemática inversa muestra\
+Ángulos: [-0.3795, -1.5364, 1.713, -0.013, 0.0247, -0.0]\
+Mientras que la terminal para cinemática directa muestra:\
+pd: (0.50, 0.20, 0.80), pf: (0.5003, 0.1995, 0.7996) | Error: 0.000839 m
+
+
 =======
 # kinematics_kuka_kr6_r900_sixx_ws
 >>>>>>> 2c563493db95e0d48e197cfcb5c149256cb60bc7
