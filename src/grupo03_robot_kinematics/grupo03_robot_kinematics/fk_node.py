@@ -77,19 +77,15 @@ class JointSubscriber(Node):
         q5 = msg.position[4]
         q6 = msg.position[5]
 
-        # Matrices DH
-        T_base = np.diag([1.0, -1.0, -1.0, 1.0])
+        A01 = dh(0.0,          0.4,    0.0,     np.pi)
+        A12 = dh(q1,           0.0,    0.025,   np.pi/2)
+        A23 = dh(q2,           0.0,    0.455,   0.0)
+        A34 = dh(q3-np.pi/2,   0.0,    0.035,   np.pi/2)
+        A45 = dh(q4,          -0.42,   0.0,    -np.pi/2)
+        A56 = dh(q5,           0.0,    0.0,     np.pi/2)
+        A67 = dh(q6+np.pi,    -0.08,   0.0,     np.pi)
 
-        A1 = dh(q1,            -0.400,  0.025,  np.pi / 2)
-        A2 = dh(q2,             0.0,    0.455,  0.0)
-        A3 = dh(q3 - np.pi/2,   0.0,    0.035,  np.pi / 2)
-        A4 = dh(q4,            -0.420,  0.0,   -np.pi / 2)
-        A5 = dh(q5,             0.0,    0.0,    np.pi / 2)
-        A6 = dh(q6,            -0.080,  0.0,    0.0)
-
-        T_tool = np.diag([-1.0, 1.0, -1.0, 1.0])
-
-        T = T_base @ A1 @ A2 @ A3 @ A4 @ A5 @ A6 @ T_tool
+        T = A01 @ A12 @ A23 @ A34 @ A45 @ A56 @ A67 
 
         # Extraer posiciones X, Y, Z
         x = T[0, 3]
