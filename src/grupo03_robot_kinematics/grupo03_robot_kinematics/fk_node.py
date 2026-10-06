@@ -97,7 +97,8 @@ class JointSubscriber(Node):
         quat = quaternion(R)  
 
         self.get_logger().info(
-            f"x: {x:.3f}  y: {y:.3f}  z: {z:.3f}  |  quat: [{quat[0]:.3f}, {quat[1]:.3f}, {quat[2]:.3f}, {quat[3]:.3f}]"
+            f"x: {x:.3f}  y: {y:.3f}  z: {z:.3f}  |  quat: [{quat[0]:.3f}, {quat[1]:.3f}, {quat[2]:.3f}, {quat[3]:.3f}]",
+            throttle_duration_sec=0.5
         )
 
         # Cálculo de error cuando es pertinente
@@ -107,7 +108,8 @@ class JointSubscriber(Node):
             
             self.get_logger().info(
                 f"   [Verificación IK] pd: ({self.p_d[0]:.4f}, {self.p_d[1]:.4f}, {self.p_d[2]:.4f}) | "
-                f"pf: ({p_f[0]:.4f}, {p_f[1]:.4f}, {p_f[2]:.4f}) | Error: {error:.6f} m"
+                f"pf: ({p_f[0]:.4f}, {p_f[1]:.4f}, {p_f[2]:.4f}) | Error: {error:.6f} m",
+                throttle_duration_sec=0.5
             )
 
 

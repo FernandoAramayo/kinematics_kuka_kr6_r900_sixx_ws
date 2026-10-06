@@ -40,7 +40,10 @@ source install/setup.bash
 
 *Nota sobre compilación manual:* Si agregas nuevos nodos o modificas código, compila desde la raíz del repositorio usando:
 ```bash
+source /opt/ros/jazzy/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 colcon build --symlink-install
+source install/setup.bash
 ```
 
 ## 4. Comandos de Ejecución y Pruebas
