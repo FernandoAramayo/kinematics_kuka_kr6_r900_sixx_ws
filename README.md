@@ -30,7 +30,7 @@ chmod +x instalar.sh abrir.sh recompilar.sh verificar.sh
 ```
 
 **Carga del entorno:**
-**Desde la raíz del repositorio**. Para inicializar el workspace en **cada terminal nueva**, debes cargar ROS 2, configurar CycloneDDS y hacer un *source* a la instalación local. Puedes ejecutar el script `./entorno.sh` o realizarlo manualmente:
+**Desde la raíz del repositorio**. Para inicializar el workspace en **cada terminal nueva**, debes cargar ROS 2, configurar CycloneDDS y hacer un *source* a la instalación local. Puedes ejecutar el script `source entorno.sh` o realizarlo manualmente:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
