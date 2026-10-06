@@ -30,7 +30,7 @@ chmod +x instalar.sh abrir.sh recompilar.sh verificar.sh
 ```
 
 **Carga del entorno:**
-Para inicializar el workspace en cualquier terminal nueva, debes cargar ROS 2, configurar CycloneDDS y hacer un *source* a la instalación local. Puedes ejecutar el script `./entorno.sh` o realizarlo manualmente:
+**Desde la raíz del repositorio**. Para inicializar el workspace en **cada terminal nueva**, debes cargar ROS 2, configurar CycloneDDS y hacer un *source* a la instalación local. Puedes ejecutar el script `./entorno.sh` o realizarlo manualmente:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -56,7 +56,7 @@ ros2 launch grupo03_kuka_kr6_bringup display.launch.py
 Este procedimiento permite enviar una coordenada en el espacio ($X, Y, Z$); el nodo IK calculará los ángulos necesarios, y el nodo FK verificará matemáticamente si la posición alcanzada coincide con la deseada.
 
 1. Abre una terminal y ejecuta el *launch* file de RViz2.
-2. **Importante:** Cierra la ventana emergente de *Joint State Publisher GUI* (la de los sliders) para que no interfiera publicando ceros en las articulaciones.
+2. **Importante:** Cierra la ventana emergente de *Joint State Publisher GUI* (la ventana de los sliders) para que no interfiera publicando en las articulaciones.
 3. Abre una **segunda terminal** (recuerda ejecutar `source entorno.sh`) y corre el nodo IK:
    ```bash
    ros2 run grupo03_robot_kinematics ik
@@ -106,8 +106,8 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
     │   │   └── display.launch.py
     │   ├── CMakeLists.txt
     │   └── package.xml
-    └── kinematics/
-        ├── kinematics/
+    └── grupo03_robot_kinematics/
+        ├── grupo03_robot_kinematics/
         │   ├── __init__.py
         │   ├── fk_node.py
         │   └── ik_node.py
