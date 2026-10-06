@@ -133,6 +133,5 @@ Mientras que la terminal para cinemática directa muestra:\
 <img width="1477" height="44" alt="readme_fk" src="https://github.com/user-attachments/assets/3ec60c9b-2d97-44ee-8500-b445f7afad72" />
 pf: (0.5000, 0.1994, 0.8002) | Error: 0.000606 m
 
-=======
 # kinematics_kuka_kr6_r900_sixx_ws
 >>>>>>> 2c563493db95e0d48e197cfcb5c149256cb60bc7
