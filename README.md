@@ -120,6 +120,7 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
 
 ## 7. Errores Conocidos y Consideraciones Particulares
 * **Conflicto de publicación en `/joint_states`:** Si se utiliza el nodo de Cinemática Inversa (IK) con la interfaz gráfica (GUI) de *Joint State Publisher* abierta, el robot temblará erráticamente en RViz. Esto ocurre porque la GUI y el nodo IK intentan escribir comandos contradictorios en el mismo tópico al mismo tiempo. Es mandatorio cerrar la GUI para el Procedimiento A.
+* **Olvidar cargar el entorno:** No será posible correr ningún ejecutable si no se carga el entorno en la terminal en cuestión.
 
 ## 8. Ejemplo de resultados
 Al seguir Procedimiento A: Prueba Completa (Cinemática Inversa + Directa), mediante el objetivo:\
