@@ -62,13 +62,13 @@ Este procedimiento permite enviar una coordenada en el espacio ($X, Y, Z$); el n
 2. **Importante:** Cierra la ventana emergente de *Joint State Publisher GUI* (la ventana de los sliders) para que no interfiera publicando en las articulaciones.
 <img width="20%" height="20%" alt="cerrar_publisher_corto" src="https://github.com/user-attachments/assets/783c5cdc-77b5-45b6-82f0-224c42c913be" />
 
-3. Abre una **segunda terminal** (recuerda ejecutar `source entorno.sh`) y corre el nodo IK:
-   ```bash
-   ros2 run grupo03_robot_kinematics ik
-   ```
-4. Abre una **tercera terminal** (`source entorno.sh`) y corre el nodo FK:
+3. Abre una **segunda terminal** (`source entorno.sh`) y corre el nodo FK:
    ```bash
    ros2 run grupo03_robot_kinematics fk
+   ```
+4. Abre una **tercera terminal** (recuerda ejecutar `source entorno.sh`) y corre el nodo IK::
+   ```bash
+   ros2 run grupo03_robot_kinematics ik
    ```
 5. Abre una **cuarta terminal** (`source entorno.sh`) y envía el objetivo espacial. *Ejemplo concreto de una prueba:*
    ```bash
