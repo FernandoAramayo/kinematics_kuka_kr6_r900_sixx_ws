@@ -126,12 +126,12 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
 * **Olvidar cargar el entorno:** No será posible correr ningún ejecutable si no se carga el entorno en la terminal en cuestión.
 
 ## 8. Ejemplo de resultados
-Al seguir Procedimiento A: Prueba Completa (Cinemática Inversa + Directa), mediante el objetivo:\
-{x: 0.50, y: 0.20, z: 0.80}\
-La terminal para cinemática inversa muestra:\
-Ángulos: [-0.3795, -1.5364, 1.713, -0.013, 0.0247, -0.0]\
+Al seguir Procedimiento A: Prueba Completa (Cinemática Inversa + Directa) mediante el objetivo {x: 0.50, y: 0.20, z: 0.80}, la terminal para cinemática inversa muestra:\
+<img width="1405" height="53" alt="readme_ik" src="https://github.com/user-attachments/assets/179ab45d-b2f2-48c6-b247-ea08194a3dfd" />
+Ángulos: [-0.3795, -1.5373, 1.7124, -0.0008, 0.024, -0.0]\
 Mientras que la terminal para cinemática directa muestra:\
-pd: (0.50, 0.20, 0.80), pf: (0.5003, 0.1995, 0.7996) | Error: 0.000839 m
+<img width="1477" height="51" alt="readme_fk" src="https://github.com/user-attachments/assets/659321e1-4723-405b-b04e-e387c4cecfcf" />
+pf: (0.5000, 0.1994, 0.8002) | Error: 0.000606 m
 
 
 =======
