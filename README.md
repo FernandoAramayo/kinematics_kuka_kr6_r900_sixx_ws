@@ -130,5 +130,5 @@ Al seguir Procedimiento A: Prueba Completa (Cinemática Inversa + Directa) media
 <img width="1415" height="42" alt="readme_ik2" src="https://github.com/user-attachments/assets/38422b5f-0fc5-47af-ad59-2c59447e97de" />
 Ángulos: [-0.3795, -1.5373, 1.7124, -0.0008, 0.024, -0.0]\
 Mientras que la terminal para cinemática directa muestra:\
-<img width="1415" height="42" alt="readme_fk2" src="https://github.com/user-attachments/assets/fb0b9dfc-5675-471b-9f8e-076d604bdcf5" />
+<img width="1415" height="42" alt="readme_fk2" src="https://github.com/user-attachments/assets/193bc0f6-e012-4ae8-92dd-0282278f9451" />
 pf: (0.5000, 0.1994, 0.8002) | Error: 0.000606 m
