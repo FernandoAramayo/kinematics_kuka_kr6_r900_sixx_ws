@@ -41,7 +41,7 @@ def quaternion(R):
 
 class JointSubscriber(Node):
     def __init__(self):
-        super().__init__('fk_node_numpy')
+        super().__init__('fk_node')
         
         self.subscription = self.create_subscription(
             JointState,
@@ -62,7 +62,7 @@ class JointSubscriber(Node):
         self.get_logger().info("Nodo FK iniciado. Escuchando /joint_states y /target...")
 
     def target_callback(self, msg):
-        # Guardamos el objetivo pd cuando llega desde la terminal
+        # Guardar el objetivo pd 
         self.p_d = np.array([msg.x, msg.y, msg.z], dtype=float)
 
     def sub_callback(self, msg):

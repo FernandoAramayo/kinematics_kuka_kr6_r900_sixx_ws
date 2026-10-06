@@ -15,19 +15,18 @@ def dh(theta, d, a, alpha):
     ], dtype=float)
 
 def get_fk_matrices(q):
-    T_base = np.diag([1.0, -1.0, -1.0, 1.0])
-    A1 = dh(q[0],            -0.400,  0.025,  np.pi / 2)
-    A2 = dh(q[1],             0.0,    0.455,  0.0)
-    A3 = dh(q[2] - np.pi/2,   0.0,    0.035,  np.pi / 2)
-    A4 = dh(q[3],            -0.420,  0.0,   -np.pi / 2)
-    A5 = dh(q[4],             0.0,    0.0,    np.pi / 2)
-    A6 = dh(q[5],            -0.080,  0.0,    0.0)
-    T_tool = np.diag([-1.0, 1.0, -1.0, 1.0])
-    return [T_base, A1, A2, A3, A4, A5, A6, T_tool]
+    A01 = dh(0.0,          0.4,    0.0,     np.pi)
+    A12 = dh(q[0],           0.0,    0.025,   np.pi/2)
+    A23 = dh(q[1],           0.0,    0.455,   0.0)
+    A34 = dh(q[2]-np.pi/2,   0.0,    0.035,   np.pi/2)
+    A45 = dh(q[3],          -0.42,   0.0,    -np.pi/2)
+    A56 = dh(q[4],           0.0,    0.0,     np.pi/2)
+    A67 = dh(q[5]+np.pi,    -0.08,   0.0,     np.pi)
+    return [A01, A12, A23, A34, A45, A56, A67]
 
 def fk(q):
     m = get_fk_matrices(q)
-    return m[0] @ m[1] @ m[2] @ m[3] @ m[4] @ m[5] @ m[6] @ m[7]
+    return m[0] @ m[1] @ m[2] @ m[3] @ m[4] @ m[5] @ m[6] 
 
 def jacobian_geometrico(q):
     m = get_fk_matrices(q)
@@ -40,7 +39,6 @@ def jacobian_geometrico(q):
         axes.append(T[:3, 2].copy())
         T = T @ m[i]
         
-    T = T @ m[7]
     p_n = T[:3, 3]
 
     J = np.zeros((6, 6))
@@ -61,7 +59,7 @@ def aplicar_limites(q):
 def ik_position(p_des, q0):
     q = np.array(q0, dtype=float)
 
-    alfa = 0.5          
+    gain = 0.5          
     tol_pos = 1e-3       # 1 mm de tolerancia
     max_iterations = 200
     max_step = 0.1
@@ -75,7 +73,7 @@ def ik_position(p_des, q0):
         if np.linalg.norm(e_pos) < tol_pos:
             return q, True, k, np.linalg.norm(e_pos)
 
-        # Extraer posición de Jacobiano geométrico completo
+        # Extraer la parte de posición del Jacobiano geométrico completo
         J = jacobian_geometrico(q)
         J_v = J[:3, :] 
 
@@ -87,7 +85,7 @@ def ik_position(p_des, q0):
         if norm_dq > max_step:
             dq = dq * (max_step / norm_dq)
         
-        q = q + alfa * dq
+        q = q + gain * dq
         q = aplicar_limites(q)
 
     return q, False, max_iterations, np.linalg.norm(p_des - fk(q)[:3, 3])
@@ -95,7 +93,7 @@ def ik_position(p_des, q0):
 
 class IKNode(Node):
     def __init__(self):
-        super().__init__("ik_iterative_node")
+        super().__init__("ik_node")
         self.q = [0.0, -np.pi/2, np.pi/2, 0.0, 0.0, 0.0]
         self.have_solution = True
 
