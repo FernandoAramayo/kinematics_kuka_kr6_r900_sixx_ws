@@ -127,8 +127,8 @@ Este procedimiento permite mover el brazo manualmente y ver cómo el nodo FK cal
 
 ## 8. Ejemplo de resultados
 Al seguir Procedimiento A: Prueba Completa (Cinemática Inversa + Directa) mediante el objetivo {x: 0.50, y: 0.20, z: 0.80}, la terminal para cinemática inversa muestra:\
-<img width="1477" height="44" alt="readme_ik" src="https://github.com/user-attachments/assets/0ed702f8-1a76-425b-80d8-e22aa98209c9" />
+<img width="1415" height="42" alt="readme_ik2" src="https://github.com/user-attachments/assets/38422b5f-0fc5-47af-ad59-2c59447e97de" />
 Ángulos: [-0.3795, -1.5373, 1.7124, -0.0008, 0.024, -0.0]\
 Mientras que la terminal para cinemática directa muestra:\
-<img width="1477" height="44" alt="readme_fk" src="https://github.com/user-attachments/assets/3ec60c9b-2d97-44ee-8500-b445f7afad72" />
+<img width="1415" height="42" alt="readme_fk2" src="https://github.com/user-attachments/assets/fb0b9dfc-5675-471b-9f8e-076d604bdcf5" />
 pf: (0.5000, 0.1994, 0.8002) | Error: 0.000606 m
