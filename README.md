@@ -57,7 +57,7 @@ Este procedimiento permite enviar una coordenada en el espacio ($X, Y, Z$); el n
 
 1. Abre una terminal y ejecuta el *launch* file de RViz2.
 2. **Importante:** Cierra la ventana emergente de *Joint State Publisher GUI* (la ventana de los sliders) para que no interfiera publicando en las articulaciones.
-<img width="50%" height="50%" alt="cerrar_publisher_corto" src="https://github.com/user-attachments/assets/783c5cdc-77b5-45b6-82f0-224c42c913be" />
+<img width="20%" height="20%" alt="cerrar_publisher_corto" src="https://github.com/user-attachments/assets/783c5cdc-77b5-45b6-82f0-224c42c913be" />
 
 3. Abre una **segunda terminal** (recuerda ejecutar `source entorno.sh`) y corre el nodo IK:
    ```bash
